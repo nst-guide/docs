@@ -21,8 +21,10 @@ extra:
 # Layout
 nav:
   - Home: "index.md"
-  - Getting Started: "getting_started.md"
-  - Contributing: "CONTRIBUTING.md"
+  - Map Data:
+    - Overview: "map-data/index.md"
+    - Generating Map Data: "map-data/generating.md"
+    - Hosting Map Data: "map-data/hosting.md"
 
 # Theme
 theme:
@@ -40,9 +42,9 @@ theme:
     code: "Fira Code"
 
 # Uncomment if I use math in the docs in the future
-# extra_javascript:
-#     - helpers/helpers.js
-#     - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+extra_javascript:
+    - helpers/helpers.js
+    - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML
 
 # These extensions are chosen to be a superset of Pandoc's Markdown.
 # This way, I can write in Pandoc's Markdown and have it be supported here.
