@@ -17,7 +17,6 @@ Mapbox is much friendlier, with a rather [generous free tier][mapbox-pricing].
 Going with Mapbox services is not a bad option, but I chose against it for a few
 reasons:
 
-
 [mapbox-pricing]: https://www.mapbox.com/pricing/
 
 - **Free project**. NST Guide is designed to be a free product, so I wanted to
