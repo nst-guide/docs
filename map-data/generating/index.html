@@ -529,11 +529,16 @@ OpenMapTiles, which</p>
 <p><div class="codehilite"><pre><span></span>git clone https://github.com/nst-guide/openmaptiles
 <span class="nb">cd</span> openmaptiles
 sudo docker-compose pull
-./quickstart.sh washington
-cp data/tiles.mbtiles ./washington.mbtiles
-./quickstart.sh oregon
-cp data/tiles.mbtiles ./oregon.mbtiles
-tile-join joined.mbtiles washington.mbtiles oregon.mbtiles
+
+<span class="c1"># Make OpenMapTiles</span>
+<span class="nv">regions</span><span class="o">=</span><span class="s2">&quot;washington oregon&quot;</span>
+mkdir -p mbtiles
+<span class="k">for</span> region in <span class="nv">$regions</span><span class="p">;</span> <span class="k">do</span>
+    sudo ./quickstart.sh <span class="nv">$region</span> <span class="o">&amp;&amp;</span> cp data/tiles.mbtiles mbtiles/<span class="nv">$region</span>.mbtiles<span class="p">;</span>
+<span class="k">done</span>
+
+<span class="c1"># join tiles</span>
+tile-join joined.mbtiles mbtiles/*.mbtiles
 </pre></div>
 The argument to <code>./quickstart.sh</code> is the region name. You can find valid region
 names in the <a href="https://github.com/nst-guide/openmaptiles/blob/master/QUICKSTART.md#check-other-extracts">OpenMapTiles documentation</a>.</p>
