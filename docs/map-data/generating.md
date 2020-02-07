@@ -87,11 +87,16 @@ In code, the process is
 git clone https://github.com/nst-guide/openmaptiles
 cd openmaptiles
 sudo docker-compose pull
-./quickstart.sh washington
-cp data/tiles.mbtiles ./washington.mbtiles
-./quickstart.sh oregon
-cp data/tiles.mbtiles ./oregon.mbtiles
-tile-join joined.mbtiles washington.mbtiles oregon.mbtiles
+
+# Make OpenMapTiles
+regions="washington oregon"
+mkdir -p mbtiles
+for region in $regions; do
+    sudo ./quickstart.sh $region && cp data/tiles.mbtiles mbtiles/$region.mbtiles;
+done
+
+# join tiles
+tile-join joined.mbtiles mbtiles/*.mbtiles
 ```
 The argument to `./quickstart.sh` is the region name. You can find valid region
 names in the [OpenMapTiles documentation][openmaptiles-valid-region-names].
