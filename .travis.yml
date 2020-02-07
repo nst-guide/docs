@@ -6,7 +6,11 @@ before_install:
       exit;
     fi
 install:
-  - pip install pygments mkdocs mkdocs-material
+  # Install separately because of version conflicts
+  # https://github.com/JuliaDocs/Documenter.jl/issues/590#issuecomment-339427788
+  - pip install pygments
+  - pip install mkdocs
+  - pip install mkdocs-material
 script:
   - git clean -f -d -x
 after_success:
