@@ -91,7 +91,9 @@ sudo docker-compose pull
 # Make OpenMapTiles
 regions="washington oregon"
 mkdir -p mbtiles
-for region in $regions; do
+# z expansion flag:
+# https://stackoverflow.com/a/23164496
+for region in ${(z)regions}; do
     sudo ./quickstart.sh $region && cp data/tiles.mbtiles mbtiles/$region.mbtiles;
 done
 
