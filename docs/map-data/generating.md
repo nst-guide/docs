@@ -86,7 +86,7 @@ In code, the process is
 ```bash
 git clone https://github.com/nst-guide/openmaptiles
 cd openmaptiles
-docker-compose pull
+sudo docker-compose pull
 ./quickstart.sh washington
 cp data/tiles.mbtiles ./washington.mbtiles
 ./quickstart.sh oregon
